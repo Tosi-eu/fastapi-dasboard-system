@@ -1,0 +1,41 @@
+  services:
+    db:
+      image: postgres:15
+      container_name: postgres_case
+      environment:
+        POSTGRES_USER: admin
+        POSTGRES_PASSWORD: admin
+        POSTGRES_DB: case_db
+      ports:
+        - "5432:5432"
+      volumes:
+        - db_data:/var/lib/postgresql/data
+    backend:
+      build:
+        context: ./
+        dockerfile: backend/Dockerfile
+      container_name: backend_case
+      environment:
+        DATABASE_URL_MOCK: "postgresql://admin:admin@db:5432/case_db"
+        SECRET_KEY: "minha_super_secret_key"
+        JWT_ALGORITHM: "HS256"
+        ACCESS_TOKEN_EXPIRE_MINUTES: "1440"
+      ports:
+        - "8000:8000"
+      depends_on:
+        - db
+      command: ["sh", "./setup.sh"]
+
+    frontend:
+      build:
+        context: ./    
+        dockerfile: frontend/Dockerfile
+      container_name: frontend_case
+      ports:
+        - "5173:5173"
+      volumes:
+        - ./frontend:/app
+      command: npm run dev
+
+  volumes:
+    db_data:

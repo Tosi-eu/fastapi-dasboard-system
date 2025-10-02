@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+python-jose
+passlib[bcrypt]
+pydantic
+pydantic-settings
+python-multipart
+python-dateutil
+python-dotenv
+prisma
+pandas
