@@ -1,6 +1,6 @@
 # Quick Start 
 
-Projeto **FastAPI + Prisma + PostgreSQL + React ** com importação de CSVs.
+Projeto **FastAPI + Prisma + PostgreSQL + React** com importação de CSVs.
 
 O projeto consiste em um sistema de login e cadastro de usuários, tendo possibilidade visualizar um dashboard em formato tabular.
 
