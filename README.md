@@ -7,7 +7,7 @@ O projeto consiste em um sistema de login e cadastro de usuários, tendo possibi
 A estrutura do projeto dispõe de uma API com fastAPI, possuindo as rotas
 
 - GET /login -> permite o usuário fazer login com autenticação JWT e e encoding de senha
-- GET /metrics -> permite a obtenção, com paginação, das métricas disponibilizadas no metrics.csv
+- GET /metrics -> permite a obtenção, com paginação, das métricas disponibilizadas no metrics.csv e populadas no banco
 - POST /register -> permite a criação de usuário a partir dos que existem na base, além de inserir no banco um novo registro com senha encriptada
 - POST /populate?target=? -> permite a leitura e inserção dos dados dos CSV no banco de dados, com paralelismo.
 
